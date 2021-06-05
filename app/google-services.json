@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "717933462696",
+    "project_id": "authsignin-1f225",
+    "storage_bucket": "authsignin-1f225.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717933462696:android:0efcde6d86d0d96f5d2e9d",
+        "android_client_info": {
+          "package_name": "com.example.authsignin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "717933462696-njf9s0lbomsk7jph5t6m8nst5f621stn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTdnqOUB1CVxZTjvg_sIio_BxXezBb32A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "717933462696-njf9s0lbomsk7jph5t6m8nst5f621stn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
