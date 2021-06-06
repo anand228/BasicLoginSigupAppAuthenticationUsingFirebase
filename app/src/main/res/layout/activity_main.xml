@@ -4,11 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/signupTextPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/personsignup" />
 
     <EditText
-        android:id="@+id/loginTextEmailAddress"
+        android:id="@+id/signupTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:ems="12"
+        android:hint="enter name..."
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/signupTextEmailAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.908" />
+
+    <EditText
+        android:id="@+id/signupTextEmailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="12"
@@ -21,7 +44,7 @@
         app:layout_constraintVertical_bias="0.465" />
 
     <EditText
-        android:id="@+id/loginTextTextPassword"
+        android:id="@+id/signupTextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -30,15 +53,19 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/signupTextEmailAddress" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/signupButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="login"
         android:layout_marginStart="155dp"
         android:layout_marginTop="20dp"
+        android:text="sign up"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/signupTextPassword" />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
