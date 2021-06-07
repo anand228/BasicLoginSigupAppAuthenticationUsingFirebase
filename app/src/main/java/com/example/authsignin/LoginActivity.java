@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnCompleteListener(LoginActivity.this, task -> {
                     if(task.isSuccessful()){
                         Intent intent = new Intent(LoginActivity.this, DashBoardActivity.class);
+                        //sending values to other activities
                         intent.putExtra("email", Objects.requireNonNull(mAuth.getCurrentUser()).getEmail());
                         intent.putExtra("uid", mAuth.getCurrentUser().getUid());
                         startActivity(intent);

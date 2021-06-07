@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
                         Intent intent = new Intent(MainActivity.this, DashBoardActivity.class);
+                        //sending values to other activities
                         intent.putExtra("email", Objects.requireNonNull(mAuth.getCurrentUser()).getEmail());
                         intent.putExtra("uid", mAuth.getCurrentUser().getUid());
                         startActivity(intent);
