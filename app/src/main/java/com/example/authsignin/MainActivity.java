@@ -1,10 +1,13 @@
 package com.example.authsignin;
 
+import android.Manifest;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,6 +19,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 
 import java.util.Objects;
 
@@ -23,7 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText signupPassword;
     private EditText signupEmail;
+    private EditText signupCourse, signupName;
+    ImageView imgView;
+    Bitmap bitmap;
     private Button signupButton;
+    private Button signupBrowse;
     private FirebaseAuth mAuth;
     private String  getEmailSignup;
     private String getPasswordSignup;
@@ -41,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         signupEmail = findViewById(R.id.signupTextEmailAddress);
         signupPassword = findViewById(R.id.signupTextPassword);
         signupButton = findViewById(R.id.signupButton);
+        imgView = (ImageView)findViewById(R.id.imageView);
+        signupBrowse = findViewById(R.id.signupBrowse);
     }
 
     private void OnClickListener(){
@@ -48,6 +63,30 @@ public class MainActivity extends AppCompatActivity {
             getEmailSignup = signupEmail.getEditableText().toString().trim();
             getPasswordSignup = signupPassword.getEditableText().toString().trim();
             add_user();
+        });
+
+        signupBrowse.setOnClickListener(view -> {
+            Dexter.withActivity(MainActivity.this)
+                    .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    .withListener(new PermissionListener() {
+                        @Override
+                        public void onPermissionGranted(PermissionGrantedResponse response) {
+                            Intent intent = new Intent(Intent.ACTION_PICK);
+                            intent.setType("image/*");
+
+                        }
+
+                        @Override
+                        public void onPermissionDenied(PermissionDeniedResponse response) {
+
+                        }
+
+                        @Override
+                        public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+                            token.continuePermissionRequest();
+                        }
+                    }).check();
+
         });
     }
 
