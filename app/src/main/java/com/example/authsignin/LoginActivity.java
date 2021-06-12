@@ -56,7 +56,6 @@ public class LoginActivity extends AppCompatActivity {
                         intent.putExtra("email", Objects.requireNonNull(mAuth.getCurrentUser()).getEmail());
                         intent.putExtra("uid", mAuth.getCurrentUser().getUid());
                         startActivity(intent);
-                        finish();
                     }
                     else{
                         loginPassword.setText("");

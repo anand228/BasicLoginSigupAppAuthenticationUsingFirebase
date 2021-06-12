@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
                         intent.putExtra("email", Objects.requireNonNull(mAuth.getCurrentUser()).getEmail());
                         intent.putExtra("uid", mAuth.getCurrentUser().getUid());
                         startActivity(intent);
-                        finish();
                     } else {
                         Toast.makeText(MainActivity.this, "signup unsuccessful", Toast.LENGTH_LONG).show();
                     }
