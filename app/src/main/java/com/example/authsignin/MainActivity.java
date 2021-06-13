@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
                         intent.putExtra("email", Objects.requireNonNull(mAuth.getCurrentUser()).getEmail());
                         intent.putExtra("uid", mAuth.getCurrentUser().getUid());
                         startActivity(intent);
+                        finish();
                     } else {
                         Toast.makeText(MainActivity.this, "signup unsuccessful", Toast.LENGTH_LONG).show();
                     }
@@ -79,5 +80,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void GotoLogin(View view) {
         startActivity(new Intent(MainActivity.this, LoginActivity.class));
+    }
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+        //super.onBackPressed();
     }
 }

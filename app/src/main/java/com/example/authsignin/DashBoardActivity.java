@@ -32,6 +32,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        // this is to minimize the app instead of going back to the last activity
         moveTaskToBack(true);
        //super.onBackPressed();
     }
